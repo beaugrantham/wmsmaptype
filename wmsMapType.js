@@ -111,10 +111,10 @@ function WmsMapType(url, params, options) {
 		var nePoint = getMercatorCoord(x + 1, y + 1, resolution);
 		
 		var bounds = {
-				swX : swPoint.xx,
-				swY : swPoint.yy,
-				neX : nePoint.xx,
-				neY : nePoint.yy
+				swX : swPoint.x,
+				swY : swPoint.y,
+				neX : nePoint.x,
+				neY : nePoint.y
 		};
 		
 		return bounds;
@@ -125,8 +125,8 @@ function WmsMapType(url, params, options) {
 	 */
 	function getMercatorCoord(x, y, resolution) {
 		var point = {
-				xx: x * TILE_SIZE * resolution - CIRCUMFERENCE / 2.0,
-				yy: y * TILE_SIZE * resolution - CIRCUMFERENCE / 2.0
+				x: x * TILE_SIZE * resolution - CIRCUMFERENCE / 2.0,
+				y: y * TILE_SIZE * resolution - CIRCUMFERENCE / 2.0
 		};
 		
 		return point;
