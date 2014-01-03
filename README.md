@@ -1,11 +1,13 @@
-WMS MapType
-==========
+# WMS MapType
+
 JavaScript library for overlaying WMS content on Google Maps (v3).
 
 Mimics a tiling web service by calculating the Web Spherical Mercator (`EPSG:3857`, `EPSG:900913`) bounding box of the visible tiles.
 
-Usage
-==========
+Uses include overlaying weather data (radar, warnings, storm forecasts), satellite imagery, landmarks, topographic features, and other WMS provided content.
+
+## Usage
+
 Create a new WMS MapType using the following constructor.
 
     WmsMapType(url, params, options)
@@ -26,8 +28,8 @@ Create a new WMS MapType using the following constructor.
  * `opacity`: The tile opacity [default: `0.5`]
  * `cache`: Cache WMS requests [default: `false`]
 
-Example
-==========
+## Example
+
     var wxRadar = new WmsMapType(
             "http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/obs",
             {layers: "RAS_RIDGE_NEXRAD"},
@@ -40,16 +42,17 @@ Example
     map.overlayMapTypes.insertAt(0, wxRadar);
     map.overlayMapTypes.insertAt(1, wxWarnings);
 
-Notes
-==========
+## Notes
+
 Currently optimized for WMS 1.1.1 and does not support WMS 1.3.0 params.
 
 The WMS must support `EPSG:3857` or `EPSG:900913` SRS. 
 
-Acknowledgements
-==========
+## Acknowledgements
+
 Credit goes to the following resources.
 
 * https://msdn.microsoft.com/en-us/library/bb259689.aspx
 * http://www.maptiler.org/google-maps-coordinates-tile-bounds-projection/
 * https://github.com/timwaters/whoots/
+
