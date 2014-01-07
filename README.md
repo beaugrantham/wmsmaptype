@@ -12,8 +12,9 @@ Create a new WMS MapType using the following constructor.
 
     WmsMapType(url, params, options)
 
-* `url` : {String} (Required) Base URL for the WMS
-* `params`: {Object} (Required) Key/value pairs representing WMS params (e.g. `layers`)
+* `name`: {`String`} (Required) Name of the MapType
+* `url`: {`String`} (Required) Base URL for the WMS
+* `params`: {`Object`} (Required) Key/value pairs representing WMS params (e.g. `layers`)
  * `service`: The service type [default: `'WMS'`]
  * `version`: The service version [default: `'1.1.1'`]
  * `request`: The service request [default: `'GetMap'`]
@@ -24,23 +25,38 @@ Create a new WMS MapType using the following constructor.
  * `srs`: The projection [default: `'EPSG:3857'`]
  * `styles`: The WMS style(s) [default: `''`]
  * `layers`: (Required) The WMS layer(s) [default: `''`]
-* `options`: {Object} Extra options for library (e.g. `opacity`)
+* `options`: {`Object`} Extra options for library (e.g. `opacity`)
  * `opacity`: The tile opacity [default: `0.5`]
  * `cache`: Cache WMS requests [default: `false`]
+
+Add to a base map using the following method.
+
+    addToMap(map[, index])
+
+* `map`: {`google.maps.Map`} (Required) Base map
+* `index`: {`int`} Optional layer index
+
+Remove from a base map using the following method.
+
+    removeFromMap(map)
+
+* `map`: {`google.maps.Map`} (Required) Base map
 
 ## Example
 
     var wxRadar = new WmsMapType(
+            "NOAA Radar",
             "http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/obs",
             {layers: "RAS_RIDGE_NEXRAD"},
             {opacity: 0.7});
 
     var wxWarnings = new WmsMapType(
+            "IEM Warnings",
             "http://mesonet.agron.iastate.edu/cgi-bin/wms/us/wwa.cgi",
             {layers: "warnings_p,warnings_c"});
 
-    map.overlayMapTypes.insertAt(0, wxRadar);
-    map.overlayMapTypes.insertAt(1, wxWarnings);
+    wxRadar.addToMap(map);
+    wxWarnings.addToMap(map);
 
 ## Notes
 

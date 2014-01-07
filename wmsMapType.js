@@ -9,11 +9,12 @@
  * http://opensource.org/licenses/MIT
  */
 
-function WmsMapType(url, params, options) {
+function WmsMapType(name, url, params, options) {
 	var TILE_SIZE = 256;
 	var EARTH_RADIUS_IN_METERS = 6378137;
 	var CIRCUMFERENCE = 2 * Math.PI * EARTH_RADIUS_IN_METERS;
 	
+        this.name = name;
 	this.url = url;
 	this.tileSize = new google.maps.Size(TILE_SIZE, TILE_SIZE); // required by API
 	
@@ -92,6 +93,36 @@ function WmsMapType(url, params, options) {
 		
 		return div;
 	};
+
+	/*
+	 * Add this MapType to a map at the given index, or on top of other layers
+	 * if index is omitted.
+	 */
+	this.addToMap = function(map, index) {
+		if (index !== undefined) {
+			map.overlayMapTypes.insertAt(Math.min(index, map.overlayMapTypes.getLength()), this);
+		}
+		else {
+			map.overlayMapTypes.push(this);
+		}
+	};
+	
+	/*
+	 * Remove this MapType from a map.
+	 */
+	this.removeFromMap = function(map) {
+		var overlayTypes = map.overlayMapTypes;
+		
+		for (var i = 0; i < overlayTypes.getLength(); i++) {
+			var element = overlayTypes.getAt(i);
+			
+			if (element !== undefined && element === this) {
+				overlayTypes.removeAt(i);
+				break;
+			}
+		}
+	};
+
 	
 	/*
 	 * ---------------
