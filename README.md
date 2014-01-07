@@ -10,7 +10,7 @@ Uses include overlaying weather data (radar, warnings, storm forecasts), satelli
 
 Create a new WMS MapType using the following constructor.
 
-    WmsMapType(name, url, params, options)
+    WmsMapType(name, url, params[, options])
 
 * `name:string`: (Required) Name of the MapType
 * `url:string`: (Required) Base URL for the WMS
@@ -31,7 +31,7 @@ Create a new WMS MapType using the following constructor.
 
 Add to a base map using the following method.
 
-    addToMap(map[,index])
+    addToMap(map[, index])
 
 * `map:google.maps.Map`: (Required) Base map
 * `index:int`: Optional layer index
