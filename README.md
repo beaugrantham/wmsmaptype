@@ -10,11 +10,11 @@ Uses include overlaying weather data (radar, warnings, storm forecasts), satelli
 
 Create a new WMS MapType using the following constructor.
 
-    WmsMapType(url, params, options)
+    WmsMapType(name, url, params, options)
 
-* `name`: {`String`} (Required) Name of the MapType
-* `url`: {`String`} (Required) Base URL for the WMS
-* `params`: {`Object`} (Required) Key/value pairs representing WMS params (e.g. `layers`)
+* `name:string`: (Required) Name of the MapType
+* `url:string`: (Required) Base URL for the WMS
+* `params:object`: (Required) Key/value pairs representing WMS params (e.g. `layers`)
  * `service`: The service type [default: `'WMS'`]
  * `version`: The service version [default: `'1.1.1'`]
  * `request`: The service request [default: `'GetMap'`]
@@ -25,22 +25,22 @@ Create a new WMS MapType using the following constructor.
  * `srs`: The projection [default: `'EPSG:3857'`]
  * `styles`: The WMS style(s) [default: `''`]
  * `layers`: (Required) The WMS layer(s) [default: `''`]
-* `options`: {`Object`} Extra options for library (e.g. `opacity`)
+* `options:object`: Extra options for library (e.g. `opacity`)
  * `opacity`: The tile opacity [default: `0.5`]
  * `cache`: Cache WMS requests [default: `false`]
 
 Add to a base map using the following method.
 
-    addToMap(map[, index])
+    addToMap(map[,index])
 
-* `map`: {`google.maps.Map`} (Required) Base map
-* `index`: {`int`} Optional layer index
+* `map:google.maps.Map`: (Required) Base map
+* `index:int`: Optional layer index
 
 Remove from a base map using the following method.
 
     removeFromMap(map)
 
-* `map`: {`google.maps.Map`} (Required) Base map
+* `map:google.maps.Map`: (Required) Base map
 
 ## Example
 
