@@ -72,3 +72,7 @@ Credit goes to the following resources.
 * http://www.maptiler.org/google-maps-coordinates-tile-bounds-projection/
 * https://github.com/timwaters/whoots/
 
+## Etc
+
+Beau Grantham <br />
+http://pgp.nologs.org/6EA6595C.asc
