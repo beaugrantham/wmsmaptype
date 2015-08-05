@@ -42,7 +42,13 @@ function WmsMapType(name, url, params, options) {
 			styles: '',
 			
 			// Layers
-			layers: ''
+			layers: '',
+			
+			//Time
+			time: '',
+
+			//Elevation
+			elevation: '',
 	};
 
 	for (var key in params) {
