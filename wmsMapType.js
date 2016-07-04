@@ -17,6 +17,8 @@ function WmsMapType(name, url, params, options) {
         this.name = name;
 	this.url = url;
 	this.tileSize = new google.maps.Size(TILE_SIZE, TILE_SIZE); // required by API
+
+	this.tiles = [ ]; // maintain managed tiles
 	
 	/*
 	 * Params representing key/value pairs included in the GetMap query.
@@ -90,6 +92,8 @@ function WmsMapType(name, url, params, options) {
 		div.style.width = this.tileSize.width + 'px';
 		div.style.height = this.tileSize.height + 'px';
 		div.style.opacity = this.options['opacity'];
+
+		this.tiles.push(div);
 		
 		return div;
 	};
@@ -121,8 +125,20 @@ function WmsMapType(name, url, params, options) {
 				break;
 			}
 		}
+
+		this.tiles = [ ];
 	};
 
+	/*
+	 * Change opacity on demand.
+	 */
+	this.setOpacity = function(opacity) {
+		this.options['opacity'] = opacity;
+
+		for (i in this.tiles) {
+			this.tiles[i].style.opacity = opacity;
+		}
+	}
 	
 	/*
 	 * ---------------

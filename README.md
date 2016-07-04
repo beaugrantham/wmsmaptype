@@ -12,9 +12,9 @@ Create a new WMS MapType using the following constructor.
 
     WmsMapType(name, url, params[, options])
 
-* `name:string`: (Required) Name of the MapType
-* `url:string`: (Required) Base URL for the WMS
-* `params:object`: (Required) Key/value pairs representing WMS params (e.g. `layers`)
+* __`name:string`__: (Required) Name of the MapType
+* __`url:string`__: (Required) Base URL for the WMS
+* __`params:object`__: (Required) Key/value pairs representing WMS params (e.g. `layers`)
  * `service`: The service type [default: `'WMS'`]
  * `version`: The service version [default: `'1.1.1'`]
  * `request`: The service request [default: `'GetMap'`]
@@ -24,7 +24,7 @@ Create a new WMS MapType using the following constructor.
  * `height`: The image heigh [default: `256`]
  * `srs`: The projection [default: `'EPSG:3857'`]
  * `styles`: The WMS style(s) [default: `''`]
- * `layers`: (Required) The WMS layer(s) [default: `''`]
+ * __`layers`__: (Required) The WMS layer(s) [default: `''`]
 * `options:object`: Extra options for library (e.g. `opacity`)
  * `opacity`: The tile opacity [default: `0.5`]
  * `cache`: Cache WMS requests [default: `false`]
@@ -45,13 +45,13 @@ Remove from a base map using the following method.
 ## Example
 
     var wxRadar = new WmsMapType(
-            "NOAA Radar",
-            "http://nowcoast.noaa.gov/wms/com.esri.wms.Esrimap/obs",
-            {layers: "RAS_RIDGE_NEXRAD"},
+            "NEXRAD Base Reflectivity",
+            "http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0q.cgi",
+            {layers: "nexrad-n0q-900913"},
             {opacity: 0.7});
 
     var wxWarnings = new WmsMapType(
-            "IEM Warnings",
+            "NWS Warnings",
             "http://mesonet.agron.iastate.edu/cgi-bin/wms/us/wwa.cgi",
             {layers: "warnings_p,warnings_c"});
 
@@ -75,4 +75,4 @@ Credit goes to the following resources.
 ## Etc
 
 Beau Grantham <br />
-http://pgp.nologs.org/6EA6595C.asc
+https://www.nologs.org/6EA6595C.asc
