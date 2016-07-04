@@ -33,14 +33,14 @@ Add to a base map using the following method.
 
     addToMap(map[, index])
 
-* `map:google.maps.Map`: (Required) Base map
+* __`map:google.maps.Map`__: (Required) Base map
 * `index:int`: Optional layer index
 
 Remove from a base map using the following method.
 
     removeFromMap(map)
 
-* `map:google.maps.Map`: (Required) Base map
+* __`map:google.maps.Map`__: (Required) Base map
 
 ## Example
 
@@ -57,6 +57,20 @@ Remove from a base map using the following method.
 
     wxRadar.addToMap(map);
     wxWarnings.addToMap(map);
+
+## Extension
+
+Extended services, like those that accept `time` or `elevation`, can also be used with this library.
+
+<pre>
+var wxRadarHistory = new WmsMapType(
+        "Historical NEXRAD Base Reflectivity",
+        "http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0q-t.cgi",
+        {layers: "nexrad-n0q-wmst", <b>time: "2014-04-28T21:00:00Z"</b>},
+        {cache: true});
+
+wxRadarHistory.addToMap(map);
+</pre>
 
 ## Notes
 
