@@ -135,7 +135,7 @@ function WmsMapType(name, url, params, options) {
 	this.setOpacity = function(opacity) {
 		this.options['opacity'] = opacity;
 
-		for (i in this.tiles) {
+		for (var i in this.tiles) {
 			this.tiles[i].style.opacity = opacity;
 		}
 	}
